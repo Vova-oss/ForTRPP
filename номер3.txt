@@ -1,0 +1,40 @@
+def f23(doubleList):
+    stolbikForDelete = []
+    i = len(doubleList[0])
+    for k in range(0,i):
+        stolbik = []
+        for oneList in doubleList:
+            stolbik.append(oneList[k])
+        for j in range(k+1,i):
+            currentStolbik = []
+            for oneList2 in doubleList:
+                currentStolbik.append(oneList2[j])
+            if currentStolbik == stolbik:
+                stolbikForDelete.append(j)
+    doubleListCopy = doubleList
+    stolbikForDelete.sort(reverse = True)
+    for j in stolbikForDelete:
+        lastList = []
+        for y in doubleListCopy:
+           y.pop(j)
+           lastList.append(y)
+        doubleListCopy = lastList
+    return doubleListCopy
+        
+            
+  
+        
+
+doubleList = [['a','b','c'],['a1','b1','c1'],['a','b','c'],['a2','b2','c2']]
+
+
+doubleList2 = [['a' ,'b' ,'a'],
+               ['a1','b1','a1'],
+               ['a' ,'b' ,'a'],
+               ['a2','b2','a2']]
+               
+               
+doubleList3 = [['a','b','c'],['a1','b1','c1'],['a','b','c'],['a2','b2','c2']]
+
+print(f23(doubleList2))
+
